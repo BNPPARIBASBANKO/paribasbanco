@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BNP PARIBAS BANCO</title>
+    <title>BNP PARIBAS BANK</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,42 +94,36 @@
 </head>
 <body>
     <div id="login-area">
-        <h1 class="text-center">Bem-vindo ao seu Banco BNP PARIBAS pessoal</h1>
+        <h1 class="text-center">Üdvözöljük a BNP PARIBAS BANK személyes bankjában</h1>
         <i class="fa fa-bank" style="font-size:48px;color:red"></i>
         <div class="input-field">
-            <input type="email" id="email" class="form-control" placeholder="Enter your E-mail">
+            <input type="email" id="email" class="form-control" placeholder="Adja meg az e-mail címét">
             <br>
-            <input type="password" id="password" class="form-control" placeholder="Enter your password">
+            <input type="password" id="password" class="form-control" placeholder="Adja meg a jelszavát">
             <br>
-            <button class="btn btn-success" id="login">Conecte-se</button>
+            <button class="btn btn-success" id="login">Bejelentkezés</button>
         </div>
     </div>
     <div id="transaction-area" style="display: none;">
-        <h1 class="text-center">Transação DA Área do BANCO BNP PARIBAS</h1>
+        <h1 class="text-center">BNP PARIBAS BANK Tranzakciós Terület</h1>
         <i class="fa fa-bank" style="font-size:36px"></i>
         <div style="text-align: left;">
-            <p><strong>Nom:</strong> JOTA</p>
-            <p><strong>Prénom:</strong> ILSON JOSÉ DOS SANTOS</p>
-            <p><strong>Pays:</strong> BRAZIL</p>
-            <p><strong>Ciudad:</strong> IBIPORÃ</p>
-        </div>
-        
-        <div style="text-align: left;">
-            <p><strong>Número de cuenta:</strong> 32300-4</p>
-            <p><strong>Detalles del banco:</strong> 2110-5</p>
-            <p><strong>IBAN:</strong> BR7600000000021100000323004C1</p>
-            <p><strong>Código SWIFT:</strong> BRASBRRJSBO</p>
+            <p><strong>Név:</strong> MILAK</p>
+            <p><strong>Keresztnév:</strong> MÁRIA</p>
+            <p><strong>Ország:</strong> Magyarország</p>
+            <p><strong>Város:</strong> Budapest 1149</p>
+            <p><strong>Számlaszám:</strong> 50453702-10204346</p>
         </div>
         <div class="row d-flex justify-content-around">
             <div class="col-md-3 py-3">
                 <div class="deposit status">
-                    <h5>Depósito</h5>
-                    <h1><span id="current-deposit">250.000 €</span></h1>
+                    <h5>Befizetés</h5>
+                    <h1><span id="current-deposit">450.000 €</span></h1>
                 </div>
             </div>
             <div class="col-md-3 py-3">
                 <div class="balance status">
-                    <h5>STATUS: TRANSFERÊNCIA EM ANDAMENTO</h5>
+                    <h5>ÁLLAPOT: ÁTVITEL FOLYAMATBAN</h5>
                     <div class="progress-bar">
                         <div class="progress-bar-inner" id="progress"></div>
                         <div class="progress-bar-label" id="progress-label">0%</div>
@@ -138,22 +132,13 @@
             </div>
             <div class="col-md-3 py-3">
                 <div class="balance status">
-                    <h5>DATA DA RECEITA</h5>
-                    <h1><span id="current-balance">28/07/2023</span></h1>
+                    <h5>BEVÉTEL DÁTUMA</h5>
+                    <h1><span id="current-balance">31/07/2023</span></h1>
                 </div>
             </div>
-            <div class="col-md-3 py-3">
-                <i class="fa fa-warning" style="font-size:48px;color:red"></i>
-                <div class="blink" style="display: flex; align-items: center; justify-content: center;">WARNING</div>
-                <div class="balance status">
-                    <h1><span id="current-balance">TAXA DE ATIVAÇÃO DE TRANSFERÊNCIA 2.500 REAIS</span></h1>
-                </div>
-            </div>
-            <i class="fa fa-warning" style="font-size:48px;color:red"></i>
-                <div class="blink" style="display: flex; align-items: center; justify-content: center;">DEPOIS DE PAGAR AS TAXAS, SEU DINHEIRO SERA ENVIADO A VOCE</div>
         </div>
          <div id="logout" style="display: none; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);">
-  <button id="logout-button" class="btn btn-outline-primary">Logout</button>
+  <button id="logout-button" class="btn btn-outline-primary">Kijelentkezés</button>
 </div>
     </div>
 
@@ -184,7 +169,7 @@
         const waypoint = new Waypoint({
             element: progressBar,
             handler: function () {
-                animateProgressBar(95);
+                animateProgressBar(65);
                 this.destroy();
             },
             offset: "bottom-in-view"
@@ -196,16 +181,16 @@
             const transactionArea = document.getElementById("transaction-area");
             const loadingOverlay = document.getElementById("loading-overlay");
 
-            // Affiche le chargement
+            // Kijelzi a töltést
             loadingOverlay.style.display = "flex";
 
-            // Simule un délai de chargement de 2 secondes
+            // Utánozza a 2 másodperces töltési késleltetést
             setTimeout(function () {
-                // Masque l'interface de connexion
+                // Elrejti a bejelentkezési felületet
                 loginArea.style.display = "none";
-                // Affiche l'interface de transaction
+                // Megjeleníti a tranzakciós felületet
                 transactionArea.style.display = "block";
-                // Masque le chargement
+                // Elrejti a töltést
                 loadingOverlay.style.display = "none";
             }, 2000);
         });
